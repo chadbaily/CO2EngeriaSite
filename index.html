@@ -26,15 +26,15 @@ color: red;
 </div>
 </form>
 <span></span>
-
+<div id = "content"></div>
 <!-- Script to load the load.php page every 5 seconds -->
-        <script>
+        <!--<script>
         setInterval(
                         function()
                         {
                         $('#content').load('load.php');
                         }, 3000);
-</script>
+</script> -->
 <!-- Script that takes is activated when the 'submit' button is clicked. It takes the number that was entered,
         sends it to load.php, then load.php echos the number that was sent. This is to test a proof of concept that
         the number that is entered can be sent to another file for use -->
@@ -43,7 +43,7 @@ color: red;
                         if ( $( "input:first" ).val() <= 10000 ) {
                         var number = $("input:first" ).val();
                         $.post("load.php", {num: number}, function(result){
-                                        $("#content").load().html(result);
+                                        $("#content").html(result);
                                         });                
                         event.preventDefault();
                         }
