@@ -1,0 +1,44 @@
+<html>
+<head>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+<script>  
+	setInterval(  
+			function()  
+			{  
+			$('#content').load('load.php');  
+			}, 3000);  
+</script>  
+
+<script type="text/javascript">
+		$("form").submit(function(event){
+            $('span').text("chad").show();
+            event.preventDefault();
+			)};
+</script>
+
+<style>  
+#content{  
+	background-color:#00A1E0;  
+	font-size:24px;  
+	font-weight:bold;  
+	padding-top:10px;  
+color:#fff;  
+      min-height: 200px;  
+}  
+#content,h1{  
+	text-align: center;  
+}  
+</style>  
+<title>Auto Load Page in Div using Jquery</title>  
+</head>  
+<body>  
+<h1>Ajax Test</h1>
+<form  name="input" method="post">
+Text: <input type="text" id = "text" name="text" />
+<input type="submit" value="Newsletter" />
+<span></span> 
+<div id="content"> </div>
+</form> 
+</div>  
+</body>  
+<html> 
