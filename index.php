@@ -1,26 +1,26 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "co2_meter";
+if( $_POST )
+{
+  $con = mysql_connect("localhost","root","");
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  if (!$con)
+  {
+    die('Could not connect: ' . mysql_error());
+  }
+
+  mysql_select_db("co2_meter", $con);
+
+  $co2_reading = $_GET['co2'];
+
+  $co2_reading = mysql_real_escape_string($co2_reading);
+
+  $query = "
+  INSERT INTO `engeria`(`co2`) VALUES ('$co2_reading');";
+
+  mysql_query($query);
+
+  echo "<h2>Thank you for your Comment!</h2>";
+
+  mysql_close($con);
 }
-
-$sql = "SELECT record_id, temperature, humidity, co2 FROM cozir";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["record_id"]. "\t\t Temperature: " . $row["temperature"]. "\t\t Humidity: " . $row["humidity"]. "\t\t CO2: ". $row["co2"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
-$conn->close();
 ?>
