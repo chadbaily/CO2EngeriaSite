@@ -23,16 +23,16 @@ color: red;
 Sensor Delay (s)<input type="number" id = "number" name = "number">
 </form>
 </div>
-<div align = "center">
+<!--<div align = "center">
 <form id = "ssid" action="javascript:alert( 'success!' );">
 SSID Name: <input type="text" id = "ssidName" name = "ssidName">
-</form>
+</form> 
 </div>
 <div align = "center">
 <form id = "pass" action="javascript:alert( 'success!' );">
 SSID Password: <input type="password" id = "ssidPass" name = "ssidPass">
 </form>
-</div>
+</div>-->
 <div align = "center">
 <button align = "center" id = "submit" type = "submit">Submit</button>
 </div>
@@ -52,8 +52,6 @@ SSID Password: <input type="password" id = "ssidPass" name = "ssidPass">
         <script>
         $("#submit").click(function( event ) {
                         var number = $("#number").val();
-                        var ssidName = $("#ssidName").val();
-                        var ssidPass = $("#ssidPass").val();
                         if (number <= 10000 ) {
                         $.post("load.php", {num: number}, function(result){
                                         $("#content").html(result);
