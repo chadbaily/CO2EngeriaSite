@@ -3,10 +3,10 @@
 header('Content-Type: application/json');
 
 //database
-define('DB_HOST', '127.0.0.1');
+define('DB_HOST', '192.168.1.17');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'root123');
-define('DB_NAME', 'mydb');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'co2_meter');
 
 //get connection
 $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT playerid, score FROM score ORDER BY playerid");
+$query = sprintf("SELECT id, co2 FROM cc3200 ORDER BY id");
 
 //execute query
 $result = $mysqli->query($query);

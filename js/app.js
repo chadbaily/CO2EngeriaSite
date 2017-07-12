@@ -1,35 +1,37 @@
 $(document).ready(function(){
 	$.ajax({
-		url: "http://localhost/chartjs/data.php",
+		url: "http://localhost/data.php",
 		method: "GET",
 		success: function(data) {
 			console.log(data);
-			var player = [];
-			var score = [];
+			var ID = [];
+			var co2 = [];
 
 			for(var i in data) {
-				player.push("Player " + data[i].playerid);
-				score.push(data[i].score);
+				ID.push("ID " + data[i].id);
+				co2.push(data[i].co2);
 			}
 
 			var chartdata = {
-				labels: player,
+				labels: ID,
 				datasets : [
 					{
-						label: 'Player Score',
-						backgroundColor: 'rgba(200, 200, 200, 0.75)',
-						borderColor: 'rgba(200, 200, 200, 0.75)',
-						hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-						hoverBorderColor: 'rgba(200, 200, 200, 1)',
-						data: score
+						label: 'CO2 Level',
+						fill: false,
+						lineTension: 0.1,
+						backgroundColor: "rgba(59, 89, 152, 0.75)",
+						borderColor: "rgba(59, 89, 152, 1)",
+						pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
+						pointHoverBorderColor: "rgba(59, 89, 152, 1)",
+						data: co2
 					}
 				]
 			};
 
 			var ctx = $("#mycanvas");
 
-			var barGraph = new Chart(ctx, {
-				type: 'bar',
+			var lineGraph = new Chart(ctx, {
+				type: 'line',
 				data: chartdata
 			});
 		},
