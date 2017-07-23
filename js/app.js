@@ -1,20 +1,20 @@
-$(document).ready(function(){
+$(document).ready(function () {
 	$.ajax({
-		url: "http://localhost/data.php",
+		url: "../data.php",
 		method: "GET",
-		success: function(data) {
-			console.log(data);
+		success: function (data) {
+			// console.log(data);
 			var ID = [];
 			var co2 = [];
 
-			for(var i in data) {
-				ID.push("ID " + data[i].id);
+			for (var i in data) {
+				ID.push(data[i].id);
 				co2.push(data[i].co2);
 			}
 
 			var chartdata = {
 				labels: ID,
-				datasets : [
+				datasets: [
 					{
 						label: 'CO2 Level',
 						fill: false,
@@ -35,8 +35,9 @@ $(document).ready(function(){
 				data: chartdata
 			});
 		},
-		error: function(data) {
+		error: function (data) {
 			console.log(data);
+			console.log("There was an unexpected error, please try again");
 		}
 	});
 });

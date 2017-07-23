@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 //database
-define('DB_HOST', '192.168.1.17');
+define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_NAME', 'co2_meter');
@@ -32,6 +32,7 @@ $result->close();
 
 //close connection
 $mysqli->close();
+
 
 //now print the data
 print json_encode($data);
