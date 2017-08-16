@@ -1,5 +1,5 @@
 <?php
-if( $_POST )
+if( $_GET )
 {
   $con = mysql_connect("localhost","root","");
 
@@ -15,12 +15,14 @@ if( $_POST )
   $co2_reading = mysql_real_escape_string($co2_reading);
 
   $query = "
-  INSERT INTO `engeria`(`co2`) VALUES ('$co2_reading');";
+  INSERT INTO `cc3200`(`co2`) VALUES ('$co2_reading');";
 
   mysql_query($query);
 
   echo "<h2>Thank you for your Comment!</h2>";
 
   mysql_close($con);
+} else{
+  echo "<h2>Comment failed!</h2>";
 }
 ?>

@@ -6,14 +6,16 @@ $(document).ready(function () {
 			// console.log(data);
 			var ID = [];
 			var co2 = [];
+			var date = [];
 
 			for (var i in data) {
 				ID.push(data[i].id);
 				co2.push(data[i].co2);
+				date.push(data[i].date);
 			}
 
 			var chartdata = {
-				labels: ID,
+				labels: date,
 				datasets: [
 					{
 						label: 'CO2 Level',

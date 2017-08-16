@@ -16,7 +16,7 @@ if(!$mysqli){
 }
 
 //query to get data from the table
-$query = sprintf("SELECT id, co2 FROM cc3200 ORDER BY id");
+$query = sprintf("SELECT id, co2, date FROM cc3200 ORDER BY date");
 
 //execute query
 $result = $mysqli->query($query);
